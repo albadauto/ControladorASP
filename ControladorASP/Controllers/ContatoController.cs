@@ -27,15 +27,22 @@ namespace ControladorASP.Controllers
             return View();
         }
 
-        public IActionResult Delete()
+        public IActionResult Delete(int id)
         {
-            return View();
+            ContatoModel contato = _contatoRepository.ListById(id);
+            return View(contato);
         }
 
         [HttpPost]
         public IActionResult Create(ContatoModel contato)
         {
             _contatoRepository.Adicionar(contato);
+            return RedirectToAction("Index");
+        }
+
+        public IActionResult DeleteRegister(int Id)
+        {
+            _contatoRepository.Excluir(Id);
             return RedirectToAction("Index");
         }
     }

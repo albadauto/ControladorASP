@@ -24,7 +24,7 @@ namespace ControladorASP.Repository
 
         public ContatoModel ListById(int id)
         {
-            return _databaseContext.Contatos.FirstOrDefault(x => x.Id == id);
+            return _databaseContext.Contatos.FirstOrDefault(x => x.Id == id) ?? throw new Exception("Error");
         }
 
         public bool Excluir(int id)

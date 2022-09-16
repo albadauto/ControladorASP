@@ -6,5 +6,7 @@ namespace ControladorASP.Repository
     {
         ContatoModel Adicionar(ContatoModel contato);
         List<ContatoModel> BuscarTodos();
+        bool Excluir(int id);
+        ContatoModel ListById(int Id);
     }
 }
