@@ -1,30 +1,31 @@
-﻿
+﻿@model ContatoModel
 <div class="text-center">
     <h1 class="display-4">Cadastrar Contato</h1>
 </div>
-<form>
+<form asp-controller="Contato" asp-action="Create" method="post">
 
     <div class="mb-3 row">
         <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
         <div class="col-sm-10">
-            <input type="text" class="form-control" id="staticEmail" placeholder="email@example.com">
+            <input type="text" asp-for="Email" class="form-control" id="staticEmail" placeholder="email@example.com">
         </div>
     </div>
 
     <div class="mb-3 row">
         <label for="Nome" class="col-sm-2 col-form-label">Nome</label>
         <div class="col-sm-10">
-            <input type="text" class="form-control" id="staticEmail" placeholder="Nome do contato">
+            <input type="text" class="form-control" asp-for="Nome" id="staticEmail" placeholder="Nome do contato">
         </div>
     </div>
 
     <div class="mb-3 row">
         <label for="staticEmail" class="col-sm-2 col-form-label">Celular</label>
         <div class="col-sm-10">
-            <input type="text" class="form-control" id="staticEmail" placeholder="email@example.com">
+            <input type="text" class="form-control" asp-for="Celular" id="staticEmail" placeholder="Celular">
         </div>
     </div>
         <button type="submit" class="btn btn-primary btn-block">Adicionar</button>
         <a class="btn btn-secondary btn-block" asp-controller="Contato" asp-action="Index" role="button">Voltar</a>
+
 
 </form>

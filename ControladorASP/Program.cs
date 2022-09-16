@@ -1,4 +1,5 @@
 using ControladorASP.Data;
+using ControladorASP.Repository;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -6,6 +7,7 @@ var connectionString = builder.Configuration.GetConnectionString("DataBase");
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddEntityFrameworkSqlServer().AddDbContext<DatabaseContext>(o => o.UseSqlServer(connectionString));
+builder.Services.AddScoped<IContatoRepository, ContatoRepository>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
