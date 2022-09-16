@@ -21,5 +21,18 @@ namespace ControladorASP.Repository
         {
             return _databaseContext.Contatos.ToList();
         }
+
+        public ContatoModel ListById(int id)
+        {
+            return _databaseContext.Contatos.FirstOrDefault(x => x.Id == id);
+        }
+
+        public bool Excluir(int id)
+        {
+            ContatoModel contatoDB = this.ListById(id);
+            _databaseContext.Contatos.Remove(contatoDB);
+            _databaseContext.SaveChanges();
+            return true;
+        }
     }
 }
