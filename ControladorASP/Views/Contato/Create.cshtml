@@ -8,6 +8,7 @@
         <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
         <div class="col-sm-10">
             <input type="text" asp-for="Email" class="form-control" id="staticEmail" placeholder="email@example.com">
+            @Html.ValidationMessageFor(x => x.Nome)
         </div>
     </div>
 
@@ -15,6 +16,8 @@
         <label for="Nome" class="col-sm-2 col-form-label">Nome</label>
         <div class="col-sm-10">
             <input type="text" class="form-control" asp-for="Nome" id="staticEmail" placeholder="Nome do contato">
+            @Html.ValidationMessageFor(x => x.Email)
+
         </div>
     </div>
 
@@ -22,6 +25,8 @@
         <label for="staticEmail" class="col-sm-2 col-form-label">Celular</label>
         <div class="col-sm-10">
             <input type="text" class="form-control" asp-for="Celular" id="staticEmail" placeholder="Celular">
+            @Html.ValidationMessageFor(x => x.Celular)
+
         </div>
     </div>
         <button type="submit" class="btn btn-primary btn-block">Adicionar</button>

@@ -36,8 +36,13 @@ namespace ControladorASP.Controllers
         [HttpPost]
         public IActionResult Create(ContatoModel contato)
         {
-            _contatoRepository.Adicionar(contato);
-            return RedirectToAction("Index");
+            if (ModelState.IsValid)
+            {
+                _contatoRepository.Adicionar(contato);
+                return RedirectToAction("Index");
+            }
+            return View(contato);
+            
         }
 
         public IActionResult DeleteRegister(int Id)
